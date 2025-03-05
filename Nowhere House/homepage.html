@@ -8,6 +8,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
 
     /* Dark overlay to deepen the atmosphere */
     body::before {
@@ -17,7 +18,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(19, 3, 3, 0.5);
       z-index: -1;
     }
 
@@ -28,7 +29,7 @@
       background: url(https://cdn.wallpapersafari.com/97/64/Qiuxjo.jpg) no-repeat center center fixed;
       background-size: cover;
       min-height: 100vh;
-      color: rgb(214, 55, 55);
+      color: rgba(226, 226, 226, 0.952);
       height: 100vh;
     }
 
@@ -45,8 +46,8 @@
       font-size: 70px;
       letter-spacing: 3px;
       margin-bottom: 20px;
-      text-shadow: 2px 1px 4px rgb(143, 0, 0);
-      font-family: 'Creepster', cursive;
+      text-shadow: 1px 1px 3px rgb(255, 11, 11);
+      font-family: 'Rubik distressed', cursive;
       animation: flicker 2s infinite;
     }
 
@@ -68,7 +69,7 @@
       display: block;
       margin: 10px 0;
       text-decoration: none;
-      color: rgb(236, 220, 220);
+      color: rgba(199, 8, 8, 0.87);
       font-size: 30px;
       transition: letter-spacing 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
       text-align: left;
@@ -88,13 +89,14 @@
       color: #eee;
       font-size: 22px;
     }
+
   </style>
 </head>
 <body>
   <!-- Homepage Container -->
   <div id="home-container">
     <div class="menu-container">
-      <h1>NOWHERE HOUSE</h1>
+      <h1>Crimson Jester</h1>
       <div class="menu">
         <a href="#" id="play-btn">Play</a>
         <a href="#" id="gallery-btn">Gallery</a>
@@ -109,6 +111,10 @@
   <div id="play-container" class="page-container">
     <h2>Play Page</h2>
     <p>This is the play page content.</p>
+    <div class="jumpscare">
+    <img src="https://media.tenor.com/CMkD8MSaJb8AAAAC/jumpscare.gif" height="100%" width="100%">
+</div>
+
   </div>
   <div id="gallery-container" class="page-container">
     <h2>Gallery Page</h2>
@@ -148,6 +154,7 @@
       e.preventDefault();
       showPage('play-container');
     });
+
 
     document.getElementById('gallery-btn').addEventListener('click', function(e) {
       e.preventDefault();
