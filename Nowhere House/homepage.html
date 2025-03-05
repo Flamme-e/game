@@ -6,7 +6,20 @@
   <title>Nowhere House</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&family=Rubik+Wet+Paint&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+    /* Dark overlay to deepen the atmosphere */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
 
     body {
       margin: 0;
@@ -21,18 +34,29 @@
 
     .menu-container {
       position: absolute;
-      top: 50%;
+      top: 45%;
       left: 5%;
       transform: translateY(-50%);
       text-align: left;
     }
 
+    /* Use Creepster for a spookier look on the heading and add flicker animation */
     h1 {
-      font-size: 48px;
+      font-size: 70px;
       letter-spacing: 3px;
       margin-bottom: 20px;
       text-shadow: 2px 1px 4px rgb(143, 0, 0);
-      font-family: 'Rubik Distressed', cursive;
+      font-family: 'Creepster', cursive;
+      animation: flicker 2s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0.8;
+      }
     }
 
     .menu {
@@ -45,7 +69,7 @@
       margin: 10px 0;
       text-decoration: none;
       color: rgb(236, 220, 220);
-      font-size: 24px;
+      font-size: 30px;
       transition: letter-spacing 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
       text-align: left;
       font-weight: bold;
@@ -57,10 +81,12 @@
       letter-spacing: 2px;
     }
 
-    /* Initially hide the play page container */
-    #play-container {
+    /* Style for the page containers (hidden by default) */
+    .page-container {
       display: none;
       padding: 20px;
+      color: #eee;
+      font-size: 22px;
     }
   </style>
 </head>
@@ -70,40 +96,78 @@
     <div class="menu-container">
       <h1>NOWHERE HOUSE</h1>
       <div class="menu">
-        <!-- Changed href to "#" and added an id for JS targeting -->
         <a href="#" id="play-btn">Play</a>
-        <a href="Gallery.html">Gallery</a>
-        <a href="Guide.html">Tutorials</a>
-        <a href="Exit.html">Exit</a>
+        <a href="#" id="gallery-btn">Gallery</a>
+        <a href="#" id="about-btn">About</a>
+        <a href="#" id="tutorials-btn">Tutorials</a>
+        <a href="#" id="settings-btn">Settings</a>
       </div>
     </div>
   </div>
 
-  <!-- Play Page Container (initially hidden) -->
-  <div id="play-container">
-    <!-- Replace this content with your actual Play page content or load it dynamically -->
+  <!-- Page Containers -->
+  <div id="play-container" class="page-container">
     <h2>Play Page</h2>
     <p>This is the play page content.</p>
   </div>
+  <div id="gallery-container" class="page-container">
+    <h2>Gallery Page</h2>
+    <p>This is the gallery page content.</p>
+  </div>
+  <div id="about-container" class="page-container">
+    <h2>About Page</h2>
+    <p>This is the about page content.</p>
+  </div>
+  <div id="tutorials-container" class="page-container">
+    <h2>Tutorials Page</h2>
+    <p>This is the tutorials page content.</p>
+  </div>
+  <div id="settings-container" class="page-container">
+    <h2>Settings Page</h2>
+    <p>This is the settings page content.</p>
+  </div>
 
   <script>
-    // Listen for the Play button click
-    document.getElementById('play-btn').addEventListener('click', function(e) {
-      e.preventDefault();
+    // Function to hide the homepage and show the selected page
+    function showPage(pageId) {
       // Hide the homepage container
       document.getElementById('home-container').style.display = 'none';
-      // Show the play page container
-      document.getElementById('play-container').style.display = 'block';
 
-      // Optionally, load external content for the play page with fetch:
-      // fetch('Play.html')
-      //   .then(response => response.text())
-      //   .then(html => {
-      //     document.getElementById('play-container').innerHTML = html;
-      //   });
+      // Hide all page containers first
+      var pages = document.getElementsByClassName('page-container');
+      for (var i = 0; i < pages.length; i++) {
+        pages[i].style.display = 'none';
+      }
+
+      // Display the selected container
+      document.getElementById(pageId).style.display = 'block';
+    }
+
+    // Set up event listeners for all buttons
+    document.getElementById('play-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      showPage('play-container');
+    });
+
+    document.getElementById('gallery-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      showPage('gallery-container');
+    });
+
+    document.getElementById('about-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      showPage('about-container');
+    });
+
+    document.getElementById('tutorials-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      showPage('tutorials-container');
+    });
+
+    document.getElementById('settings-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      showPage('settings-container');
     });
   </script>
 </body>
 </html>
-
-  
