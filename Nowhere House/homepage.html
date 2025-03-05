@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nowhere House</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&family=Rubik+Wet+Paint&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Rubik Wet Paint', cursive;
+      background: url(https://cdn.wallpapersafari.com/97/64/Qiuxjo.jpg) no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      color: rgb(214, 55, 55);
+      height: 100vh;
+    }
+
+    .menu-container {
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      transform: translateY(-50%);
+      text-align: left;
+    }
+
+    h1 {
+      font-size: 48px;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      text-shadow: 2px 1px 4px rgb(143, 0, 0);
+      font-family: 'Rubik Distressed', cursive;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu a {
+      display: block;
+      margin: 10px 0;
+      text-decoration: none;
+      color: rgb(236, 220, 220);
+      font-size: 24px;
+      transition: letter-spacing 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .menu a:hover {
+      color: red;
+      text-shadow: 0 0 15px red;
+      letter-spacing: 2px;
+    }
+
+    /* Initially hide the play page container */
+    #play-container {
+      display: none;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Homepage Container -->
+  <div id="home-container">
+    <div class="menu-container">
+      <h1>NOWHERE HOUSE</h1>
+      <div class="menu">
+        <!-- Changed href to "#" and added an id for JS targeting -->
+        <a href="#" id="play-btn">Play</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="Guide.html">Tutorials</a>
+        <a href="Exit.html">Exit</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Play Page Container (initially hidden) -->
+  <div id="play-container">
+    <!-- Replace this content with your actual Play page content or load it dynamically -->
+    <h2>Play Page</h2>
+    <p>This is the play page content.</p>
+  </div>
+
+  <script>
+    // Listen for the Play button click
+    document.getElementById('play-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      // Hide the homepage container
+      document.getElementById('home-container').style.display = 'none';
+      // Show the play page container
+      document.getElementById('play-container').style.display = 'block';
+
+      // Optionally, load external content for the play page with fetch:
+      // fetch('Play.html')
+      //   .then(response => response.text())
+      //   .then(html => {
+      //     document.getElementById('play-container').innerHTML = html;
+      //   });
+    });
+  </script>
+</body>
+</html>
+
+  
